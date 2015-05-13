@@ -7,6 +7,7 @@ class TweetImporter
   USER_KEY     = "user"
   RETWEET_KEY  = "retweeted"
 
+  COUCH_TWEET_DB = 'twitter_tweets'
 
   def self.import_tweets tweets
     ## Process each tweet as if it has the correct structure
@@ -38,7 +39,7 @@ class TweetImporter
 
     # Upload all things to couch if there is anything
     if to_couch.count > 0
-      CouchUploader.upload_documents to_couch, "tweets", TWEET_ID_KEY
+      CouchUploader.upload_documents to_couch, COUCH_TWEET_DB, TWEET_ID_KEY
     end
     # Return nil if no errors
     errors.empty? ? nil : errors
