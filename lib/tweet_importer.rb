@@ -22,7 +22,6 @@ class TweetImporter
       # Check if we are importing known duplicates with new information
       if duplicates
         # Try to find the tweet
-        puts "duplicating shit"
         tweet = Tweet.find_or_create_by!(twitter_id: tweet_id,
                           retweet: retweeted)
       else

@@ -26,7 +26,8 @@ File.open(file, 'r') do |f|
         $stdout.puts "Succesfully imported #{tweets.count} tweets"
         tweets = []
       end
-    rescue
+    rescue Exception => e
+      puts e
       $stderr.puts "Cannot parse json for line"
     end
   end
