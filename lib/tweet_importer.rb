@@ -8,7 +8,7 @@ class TweetImporter
   RETWEET_KEY  = "retweeted"
 
 
-  def self.import_tweets tweets
+  def self.import_tweets tweets, duplicates=false
     ## Process each tweet as if it has the correct structure
     ## and then upload to couchdb if save is correct
     to_couch = []
@@ -18,9 +18,16 @@ class TweetImporter
       ## Create the tweet
       tweet_id = tweet_hash[TWEET_ID_KEY]
       retweeted = tweet_hash[RETWEET_KEY]
-      tweet = Tweet.new(twitter_id: tweet_id,
-      					retweet: retweeted)
 
+      # Check if we are importing known duplicates with new information
+      if duplicates
+        # Try to find the tweet
+        tweet = Tweet.find_or_create_by(twitter_id: tweet_id,
+                          retweet: retweeted)
+      else
+        tweet = Tweet.new(twitter_id: tweet_id,
+                          retweet: retweeted)
+      end
       # Check if unique
       if tweet.save
         puts tweet.inspect
@@ -58,7 +65,7 @@ class TweetImporter
     if (tweet_hash.has_key? HASHTAG_KEY) && (tweet_hash[HASHTAG_KEY])
       topics = tweet_hash[HASHTAG_KEY]
       topics.each do |topic|
-      	text = topic['text']
+        text = topic['text']
         t = Topic.find_or_create_by(tag: text)
         t.tweets << tweet
         t.save
