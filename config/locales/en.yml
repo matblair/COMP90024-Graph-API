@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  neo4j:
+  	errors:
+  		models:
+  			tweet:
+  				attribute:
+  					twitter_id:
+  						taken: "Twitter ID already present."

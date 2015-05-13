@@ -40,7 +40,6 @@ class TweetUpdater
         # Push to couch for tweet content storage
         to_couch << tweet_hash
       else
-        to_couch << tweet_hash
         errors << tweet.errors
       end
     end
@@ -58,7 +57,8 @@ class TweetUpdater
   def self.find_tweeters tweet, tweet_hash
     if (tweet_hash.has_key? USER_KEY) && (tweet_hash[USER_KEY])
       user = tweet_hash[USER_KEY]
-      u = User.find_or_create_by!(twitter_id: user["id"], screen_name: user["screen_name"])
+      u = User.find_or_create_by(twitter_id: user["id"], screen_name: user["screen_name"])
+      u.save
       u.tweets << tweet
       u.save
     end
@@ -69,7 +69,8 @@ class TweetUpdater
       topics = tweet_hash[HASHTAG_KEY]
       topics.each do |topic|
         text = topic['text']
-        t = Topic.find_or_create_by!(tag: text)
+        t = Topic.find_or_create_by(tag: text)
+        t.save
         t.tweets << tweet
         t.save
       end
@@ -80,8 +81,9 @@ class TweetUpdater
     if (tweet_hash.has_key? MENTION_KEY) && tweet_hash[MENTION_KEY]
       mentions = tweet_hash[MENTION_KEY]
       mentions.each do |mention|
-        u = User.find_or_create_by!(twitter_id: mention["id"],
-                                   name: mention["name"])
+        u = User.find_or_create_by(twitter_id: mention["id"],
+                                    name: mention["name"])
+        u.save
         u.mentions << tweet
         u.save
       end
