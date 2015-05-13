@@ -19,7 +19,7 @@ File.open(file, 'r') do |f|
       count += 1
       if tweets.count >= BUNCH_MAX
         TweetImporter.import_tweets tweets
-        $stdout.puts "Succesfully imported #{tweets.count} tweets"
+        $stdout.puts "Succesfully imported #{tweets.count} tweets (#{count} in total)"
         tweets = []
       end
     rescue Exception => e

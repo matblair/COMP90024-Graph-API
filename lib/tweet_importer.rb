@@ -17,7 +17,7 @@ class TweetImporter
 
     tweets.each do |tweet_hash|
       ## Create the tweet
-      tweet_id = tweet_hash[TWEET_ID_KEY]
+      tweet_id  = tweet_hash[TWEET_ID_KEY]
       retweeted = tweet_hash[RETWEET_KEY]
 
       tweet = Tweet.new(twitter_id: tweet_id,
