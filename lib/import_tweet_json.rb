@@ -1,6 +1,5 @@
 # Require appropriate files
 require 'tweet_importer'
-require 'tweet_updater'
 
 BUNCH_MAX = 300
 COUCH_TWEET_DB = 'twitter_tweets'
@@ -18,8 +17,8 @@ File.open(file, 'r') do |f|
       tweets << j
       count += 1
       if tweets.count >= BUNCH_MAX
-        TweetImporter.import_tweets tweets
-        $stdout.puts "Succesfully imported #{tweets.count} tweets (#{count} in total)"
+        errors = TweetImporter.import_tweets tweets
+        $stdout.puts "Succesfully imported #{tweets.count - errors.count} tweets (#{count} in total)"
         tweets = []
       end
     rescue Exception => e
