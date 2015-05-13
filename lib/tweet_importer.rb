@@ -22,14 +22,18 @@ class TweetImporter
       # Check if we are importing known duplicates with new information
       if duplicates
         # Try to find the tweet
-        tweet = Tweet.find_or_create_by(twitter_id: tweet_id,
+        tweet = Tweet.find_or_create_by!(twitter_id: tweet_id,
                           retweet: retweeted)
       else
         tweet = Tweet.new(twitter_id: tweet_id,
                           retweet: retweeted)
+        if not tweet.save
+          tweet = nil
+        end
       end
-      # Check if unique
-      if tweet.save
+
+      # Check if we have a tweet
+      if tweet
         puts tweet.inspect
         # Is unique so build relationships
         find_tweeters tweet, tweet_hash
@@ -39,6 +43,7 @@ class TweetImporter
         # Push to couch for tweet content storage
         to_couch << tweet_hash
       else
+        to_couch << tweet_hash
         errors << tweet.errors
       end
     end
