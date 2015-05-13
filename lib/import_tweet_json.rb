@@ -1,5 +1,6 @@
 # Require appropriate files
 require 'tweet_importer'
+require 'tweet_updater'
 
 BUNCH_MAX = 300
 
