@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock '3.1.0'
+# config valid only for Capistrano 3.4
+lock '3.4.0'
 set :application, 'graph_api'
 set :repo_url, 'git@github.com:matblair/COMP90024-Graph-Api.git'
 
@@ -12,6 +12,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       run "cd #{current_path} && thin stop"
+      puts "#{current_path}"
       run "cd #{current_path} && thin start -p 4500"
     end
   end
