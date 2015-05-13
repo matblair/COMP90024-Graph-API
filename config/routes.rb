@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # API Pages
   namespace :api do 
     get 'tweets/index' => '/api/tweets#index'
-    put 'tweets/submit' => '/api/tweets#submit'
+    post 'tweets/submit' => '/api/tweets#submit'
   end
 
   # Root page
