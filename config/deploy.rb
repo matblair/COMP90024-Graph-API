@@ -6,6 +6,9 @@ set :repo_url, 'git@github.com:matblair/COMP90024-Graph-Api.git'
 set :deploy_to, '/webapps/graph_api'
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+set :bundle_dir, ""
+set :bundle_flags, ""
+
 namespace :deploy do
 
   desc 'Restart application'
