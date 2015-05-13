@@ -8,14 +8,13 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 namespace :deploy do
 
-  # desc 'Restart application'
-  # task :restart do
-  #   on roles(:app), in: :sequence, wait: 5 do
-  #     run "cd #{current_path} && thin stop"
-  #     run "cd #{current_path} && thin start -p 4500"
-  #   end
-  # end
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+    	execute "service thin restart"  ## -> line you should add
+    end
+  end
 
-  # after :publishing, 'deploy:restart'
+  after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
