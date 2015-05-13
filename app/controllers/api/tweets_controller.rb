@@ -10,7 +10,7 @@ class Api::TweetsController < ApplicationController
 		errors = TweetImporter.import_tweets tweets
 		# Render 
 		if errors
-			render json: errors.to_json
+			render json: {:errors => errors.to_json, :msg => "#{tweets.count - errors.count} Tweets succesfully imported."}.to_json
 		else
 			render json: {:message => "All tweets succesfully imported"}.to_json
 		end
