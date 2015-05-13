@@ -1,11 +1,13 @@
 class TweetImporter
   require 'couch_uploader'
 
-  HASHTAG_KEY  = "hashtags"
-  MENTION_KEY  = "user_mentions"
-  TWEET_ID_KEY = "id"
-  USER_KEY     = "user"
-  RETWEET_KEY  = "retweeted"
+  HASHTAG_KEY    = "hashtags"
+  MENTION_KEY    = "user_mentions"
+  TWEET_ID_KEY   = "id"
+  USER_KEY       = "user"
+  CREATED_AT_KEY = "created_at"
+
+  RETWEET_KEY    = "retweeted"
 
   COUCH_TWEET_DB = 'twitter_tweets'
 
@@ -29,6 +31,16 @@ class TweetImporter
         find_tweeters tweet, tweet_hash
         find_topics tweet, tweet_hash
         find_mentions tweet, tweet_hash
+
+        # Parse the date
+        d = DateTime.parse(tweet_hash[CREATED_AT_KEY])
+        # Build json for that
+        date_hash = {day: d.day, month: d.month, year: d.year,
+                     hour: d.hour, minute: d.minute,
+                     string: tweet_hash[CREATED_AT_KEY]}
+        # Assign it
+        tweet_hash[CREATED_AT_KEY] = date_hash
+
 
         # Push to couch for tweet content storage
         to_couch << tweet_hash
@@ -73,7 +85,7 @@ class TweetImporter
       mentions = tweet_hash[MENTION_KEY]
       mentions.each do |mention|
         u = User.find_or_create_by!(twitter_id: mention["id"],
-                                   name: mention["name"])
+                                    name: mention["name"])
         u.mentions << tweet
         u.save
       end
