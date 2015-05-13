@@ -2,15 +2,7 @@ class InfoController < ApplicationController
   include InfoRepresentor
 
   def index
-  	render json: welcome_message
+  	render json: welcome_message(Tweet.count, User.count, Topic.count)
   end
 
-  def users
-  end
-
-  def tweets
-  end
-
-  def topics
-  end
 end
