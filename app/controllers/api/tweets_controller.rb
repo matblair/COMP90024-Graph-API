@@ -6,15 +6,13 @@ class Api::TweetsController < ApplicationController
 	def submit
 		# Find tweets
 		tweets = params[:tweets]
-		# Hold errors
-		errors = []
 		# Process each tweet with the tweet importer
-		TweetImporter.import_tweets tweets
-
+		errors = TweetImporter.import_tweets tweets
+		# Render 
 		if errors
-			render json: errors
+			render json: errors.to_json
 		else
-			render json: {"msg" => "#{tweets.count} tweets imported"}.to_json, status: :ok
+			render json: {:message => "All tweets succesfully imported"}.to_json
 		end
 	end
 

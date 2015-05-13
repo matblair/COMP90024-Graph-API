@@ -23,6 +23,7 @@ class TweetImporter
 
       # Check if unique
       if tweet.save
+        puts tweet.inspect
         # Is unique so build relationships
         find_tweeters tweet, tweet_hash
         find_topics tweet, tweet_hash
@@ -33,7 +34,6 @@ class TweetImporter
       else
         errors << tweet.errors
       end
-
     end
 
     # Upload all things to couch if there is anything
@@ -47,7 +47,7 @@ class TweetImporter
   # Functions to build tweet relationships
   private
   def self.find_tweeters tweet, tweet_hash
-    if tweet_hash.has_key? USER_KEY
+    if (tweet_hash.has_key? USER_KEY) && (tweet_hash[USER_KEY])
       user = tweet_hash[USER_KEY]
       u = User.find_or_create_by(twitter_id: user["id"], screen_name: user["screen_name"])
       u.tweets << tweet
@@ -55,7 +55,7 @@ class TweetImporter
   end
 
   def self.find_topics tweet, tweet_hash
-    if tweet_hash.has_key? HASHTAG_KEY
+    if (tweet_hash.has_key? HASHTAG_KEY) && (tweet_hash[HASHTAG_KEY])
       topics = tweet_hash[HASHTAG_KEY]
       topics.each do |topic|
       	text = topic['text']
