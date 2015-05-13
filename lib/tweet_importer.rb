@@ -56,8 +56,9 @@ class TweetImporter
   def self.find_tweeters tweet, tweet_hash
     if (tweet_hash.has_key? USER_KEY) && (tweet_hash[USER_KEY])
       user = tweet_hash[USER_KEY]
-      u = User.find_or_create_by(twitter_id: user["id"], screen_name: user["screen_name"])
+      u = User.find_or_create_by!(twitter_id: user["id"], screen_name: user["screen_name"])
       u.tweets << tweet
+      u.save
     end
   end
 
@@ -66,7 +67,7 @@ class TweetImporter
       topics = tweet_hash[HASHTAG_KEY]
       topics.each do |topic|
         text = topic['text']
-        t = Topic.find_or_create_by(tag: text)
+        t = Topic.find_or_create_by!(tag: text)
         t.tweets << tweet
         t.save
       end
@@ -77,7 +78,7 @@ class TweetImporter
     if (tweet_hash.has_key? MENTION_KEY) && tweet_hash[MENTION_KEY]
       mentions = tweet_hash[MENTION_KEY]
       mentions.each do |mention|
-        u = User.find_or_create_by(twitter_id: mention["id"],
+        u = User.find_or_create_by!(twitter_id: mention["id"],
                                    name: mention["name"])
         u.mentions << tweet
         u.save
