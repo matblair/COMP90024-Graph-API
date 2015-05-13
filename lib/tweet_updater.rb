@@ -40,7 +40,7 @@ class TweetUpdater
         # Push to couch for tweet content storage
         to_couch << tweet_hash
       else
-        errors << tweet.errors
+        puts "No tweet for #{tweet_hash}"
       end
     end
 
