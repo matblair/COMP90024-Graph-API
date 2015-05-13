@@ -32,7 +32,7 @@ File.open(file, 'r') do |f|
       tweets << j
       count += 1
       if tweets.count >= BUNCH_MAX
-        import_tweets tweets duplicates
+        import_tweets tweets, duplicates
         $stdout.puts "Succesfully imported #{tweets.count} tweets"
         tweets = []
       end
@@ -43,7 +43,7 @@ File.open(file, 'r') do |f|
   end
 
   if not tweets.empty?
-    import_tweets tweets duplicates
+    import_tweets tweets, duplicates
     $stdout.puts "Succesfully imported #{tweets.count} tweets"
   end
 
