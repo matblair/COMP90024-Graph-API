@@ -12,6 +12,15 @@ elsif duplicates.eql? "true"
   duplicates = true
 end
 
+
+def import_tweets tweets, duplicates
+  if duplicates
+    TweetUpdater.import_tweets tweets
+  else
+    TweetImporter.import_tweets tweets
+  end
+end
+
 count = 0
 # Open that file
 File.open(file, 'r') do |f|
@@ -22,18 +31,17 @@ File.open(file, 'r') do |f|
       tweets << j
       count += 1
       if tweets.count >= BUNCH_MAX
-        TweetImporter.import_tweets tweets, duplicates
+        import_tweets tweets duplicates
         $stdout.puts "Succesfully imported #{tweets.count} tweets"
         tweets = []
       end
     rescue Exception => e
-      puts e
       $stderr.puts "Cannot parse json for line"
     end
   end
 
   if not tweets.empty?
-    TweetImporter.import_tweets tweets
+    import_tweets tweets duplicates
     $stdout.puts "Succesfully imported #{tweets.count} tweets"
   end
 

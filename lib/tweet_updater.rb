@@ -1,4 +1,4 @@
-class TweetImporter
+class TweetUpdater
   require 'couch_uploader'
 
   HASHTAG_KEY  = "hashtags"
@@ -15,15 +15,23 @@ class TweetImporter
     errors = []
 
     tweets.each do |tweet_hash|
-      ## Create the tweet
+      ## Find the tweet
       tweet_id = tweet_hash[TWEET_ID_KEY]
       retweeted = tweet_hash[RETWEET_KEY]
 
-      tweet = Tweet.new(twitter_id: tweet_id,
-                        retweet: retweeted)
+      # Check if we are importing known duplicates with new information
+      tweet = Tweet.find_by(twitter_id: tweet_id)
+      if not tweet
+        tweet = Tweet.new(twitter_id: tweet_id,
+                          retweet: retweeted)
+        if not tweet.save
+          tweet = nil
+        end
+      end
 
       # Check if we have a tweet
-      if tweet.save
+      if tweet
+        puts tweet.inspect
         # Is unique so build relationships
         find_tweeters tweet, tweet_hash
         find_topics tweet, tweet_hash
@@ -32,6 +40,7 @@ class TweetImporter
         # Push to couch for tweet content storage
         to_couch << tweet_hash
       else
+        to_couch << tweet_hash
         errors << tweet.errors
       end
     end
