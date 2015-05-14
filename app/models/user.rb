@@ -33,4 +33,5 @@ class User
   def distance_to user
 
   end
+
 end
