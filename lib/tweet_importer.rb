@@ -46,12 +46,12 @@ class TweetImporter
           # Push to couch for tweet content storage
           to_couch << tweet_hash
         else
-          $stderr.puts "Error #{tweet.errors.full_messages}"
           errors << tweet.errors
         end
-      rescue
+      rescue Exception => e
+        $stderr.puts e
         # Just incase the above throws an exception (which it shouldn't...)
-        errors << tweet.errors
+        errors << tweet_hash
       end
     end
 
