@@ -26,7 +26,7 @@ File.open(file, 'r') do |f|
         end
         tweets = []
       end
-    rescue Exception e
+    rescue Exception => e
       $stderr.puts e
       $stderr.puts "Cannot parse json for line"
     end
