@@ -3,7 +3,8 @@ class Tweet
   # Our properties on our node
   property :twitter_id, type: String, index: :exact, constraint: :unique
   property :retweet, type: Boolean
-
+  property :in_couch, type: Boolean
+  
   # Validations for uniqueness contrainsts
   validates_uniqueness_of :twitter_id
   validates :twitter_id, :presence => true
