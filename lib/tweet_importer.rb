@@ -119,8 +119,8 @@ class TweetImporter
         reply_to_user.save
       end
 
-      tweet.replies << reply_to_tweet
-      tweet.save
+      reply_to_tweet.replies << tweet
+      reply_to_tweet.save
     end
   end
 
