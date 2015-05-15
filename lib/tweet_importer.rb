@@ -31,10 +31,11 @@ class TweetImporter
 
         # Check if we have a tweet
         if tweet.save
+          entities = tweet_hash["entities"]
           # Is unique so build relationships
           user = find_tweeters tweet, tweet_hash
-          find_topics tweet, tweet_hash
-          find_mentions tweet, tweet_hash
+          find_topics tweet, entities
+          find_mentions tweet, entities
           find_replies tweet, user, tweet_hash
 
           # Extract the user info for couch
@@ -102,9 +103,9 @@ class TweetImporter
   end
   
 
-  def self.find_topics tweet, tweet_hash
-    if (tweet_hash.has_key? HASHTAG_KEY) && (tweet_hash[HASHTAG_KEY])
-      topics = tweet_hash[HASHTAG_KEY]
+  def self.find_topics tweet, entities
+    if (entities.has_key? HASHTAG_KEY) && (entities[HASHTAG_KEY])
+      topics = entities[HASHTAG_KEY]
       topics.each do |topic|
         text = topic['text']
         t = Topic.find_or_create_by!(tag: text)
@@ -114,12 +115,13 @@ class TweetImporter
     end
   end
 
-  def self.find_mentions tweet, tweet_hash
-    if (tweet_hash.has_key? MENTION_KEY) && tweet_hash[MENTION_KEY]
-      mentions = tweet_hash[MENTION_KEY]
+  def self.find_mentions tweet, entities
+    if (entities.has_key? MENTION_KEY) && entities[MENTION_KEY]
+      mentions = entities[MENTION_KEY]
       mentions.each do |mention|
         u = User.find_or_create_by!(twitter_id: mention["id"],
-                                    name: mention["name"])
+                                    name: mention["name"], 
+                                    screen_name: mention["screen_name"])
         u.mentions << tweet
         u.save
       end
