@@ -18,7 +18,7 @@ class TweetImporter
     ## and then upload to couchdb if save is correct
     to_couch = []
     errors = []
-
+    users = []
     tweets.each do |tweet_hash|
       begin
         ## Create the tweet
@@ -56,7 +56,6 @@ class TweetImporter
           # Push to couch for tweet content storage
           to_couch << tweet_hash
         else
-          puts tweet.errors.full_messages
           errors << tweet.errors
         end
       rescue Exception => e
