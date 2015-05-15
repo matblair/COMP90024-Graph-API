@@ -1,0 +1,236 @@
+ [36mCYPHER[0m [33m400ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102459358191617"}
+ [36mCYPHER[0m [33m394ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>3022832918, :n_screen_name=>"MolinaCareers", "limit_1"=>1}
+ [36mCYPHER[0m [33m209ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"3022832918"}
+ [36mCYPHER[0m [33m418ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>1, :end_id=>0}
+ [36mCYPHER[0m [33m337ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>1, :result_twitter_id=>"3022832918"}
+ [36mCYPHER[0m [33m260ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"Healthcare", "limit_1"=>1}
+ [36mCYPHER[0m [33m362ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>2, :end_id=>0}
+ [36mCYPHER[0m [33m239ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"Job", "limit_1"=>1}
+ [36mCYPHER[0m [33m93ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>3, :end_id=>0}
+ [36mCYPHER[0m [33m292ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"SanAntonio", "limit_1"=>1}
+ [36mCYPHER[0m [33m81ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>4, :end_id=>0}
+ [36mCYPHER[0m [33m124ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102116171841536"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>2602633507, :n_screen_name=>"klayleee", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"2602633507"}
+ [36mCYPHER[0m [33m79ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>6, :end_id=>5}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>6, :result_twitter_id=>"2602633507"}
+ [36mCYPHER[0m [33m267ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1641239288, :n_name=>"cashier problems", :n_screen_name=>"ProCashier", "limit_1"=>1}
+ [36mCYPHER[0m [33m205ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1641239288"}
+ [36mCYPHER[0m [33m272ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>7, :end_id=>5}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>7, :result_twitter_id=>"1641239288"}
+ [36mCYPHER[0m [33m62ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>589450517, :n_name=>"5'3 and gifted", :n_screen_name=>"Becca_Risman", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"589450517"}
+ [36mCYPHER[0m [33m82ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>8, :end_id=>5}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>8, :result_twitter_id=>"589450517"}
+ [36mCYPHER[0m [33m131ms[0m MATCH (n:`Tweet`) WHERE (n.twitter_id = {n_twitter_id}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>538957467103686656, "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102045174857728"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>2421058663, :n_screen_name=>"LadyVsays", "limit_1"=>1}
+ [36mCYPHER[0m [33m52ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"2421058663"}
+ [36mCYPHER[0m [33m77ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>10, :end_id=>9}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>10, :result_twitter_id=>"2421058663"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>2155045712, :n_name=>"Beno Udrih", :n_screen_name=>"BenoUdrih1", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"2155045712"}
+ [36mCYPHER[0m [33m87ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>11, :end_id=>9}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>11, :result_twitter_id=>"2155045712"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>7117962, :n_name=>"Memphis Grizzlies", :n_screen_name=>"memgrizz", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"7117962"}
+ [36mCYPHER[0m [33m138ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>12, :end_id=>9}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>12, :result_twitter_id=>"7117962"}
+ [36mCYPHER[0m [33m58ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>59297233, :n_name=>"Mike Conley", :n_screen_name=>"mconley11", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"59297233"}
+ [36mCYPHER[0m [33m84ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>13, :end_id=>9}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>13, :result_twitter_id=>"59297233"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101973464813568"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>607639451, :n_screen_name=>"Cynthia_Kate", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"607639451"}
+ [36mCYPHER[0m [33m77ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>15, :end_id=>14}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>15, :result_twitter_id=>"607639451"}
+ [36mCYPHER[0m [33m60ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>532542921, :n_name=>"hey", :n_screen_name=>"CurveJehovah", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"532542921"}
+ [36mCYPHER[0m [33m85ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>16, :end_id=>14}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>16, :result_twitter_id=>"532542921"}
+ [36mCYPHER[0m [33m58ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>35355898, :n_name=>"Paige Shivers", :n_screen_name=>"paige_shivers", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"35355898"}
+ [36mCYPHER[0m [33m87ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>17, :end_id=>14}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>17, :result_twitter_id=>"35355898"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101916728557569"}
+ [36mCYPHER[0m [33m101ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101463286448128"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>92620290, :n_screen_name=>"klaryssak", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"92620290"}
+ [36mCYPHER[0m [33m88ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>20, :end_id=>19}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>20, :result_twitter_id=>"92620290"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101448837042176"}
+ [36mCYPHER[0m [33m103ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101376254644224"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>729786505, :n_screen_name=>"mrhague1", "limit_1"=>1}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"729786505"}
+ [36mCYPHER[0m [33m83ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>23, :end_id=>22}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>23, :result_twitter_id=>"729786505"}
+ [36mCYPHER[0m [33m60ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>2789982053, :n_name=>"C just me", :n_screen_name=>"chonikyogbal", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"2789982053"}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102459358191617"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102116171841536"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598102045174857728"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101973464813568"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101916728557569"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101463286448128"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101448837042176"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101376254644224"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101337516199937"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>164317787, :n_screen_name=>"TXI37thm", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"164317787"}
+ [36mCYPHER[0m [33m83ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>26, :end_id=>25}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>26, :result_twitter_id=>"164317787"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"NwSide", "limit_1"=>1}
+ [36mCYPHER[0m [33m81ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>27, :end_id=>25}
+ [36mCYPHER[0m [33m65ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"traffic", "limit_1"=>1}
+ [36mCYPHER[0m [33m81ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>28, :end_id=>25}
+ [36mCYPHER[0m [33m61ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>249876171, :n_name=>"TTN San Antonio", :n_screen_name=>"TotalTrafficSAT", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"249876171"}
+ [36mCYPHER[0m [33m78ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>29, :end_id=>25}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>29, :result_twitter_id=>"249876171"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101197082394625"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>620084461, :n_screen_name=>"Wheres__Maldo__", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"620084461"}
+ [36mCYPHER[0m [33m136ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>31, :end_id=>30}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>31, :result_twitter_id=>"620084461"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598101109517856768"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>729786505, :n_screen_name=>"mrhague1", "limit_1"=>1}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"729786505"}
+ [36mCYPHER[0m [33m68ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598100794223656961"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>436902246, :n_screen_name=>"1977kelso", "limit_1"=>1}
+ [36mCYPHER[0m [33m52ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"436902246"}
+ [36mCYPHER[0m [33m85ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>34, :end_id=>33}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>34, :result_twitter_id=>"436902246"}
+ [36mCYPHER[0m [33m61ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>232465345, :n_name=>"steven", :n_screen_name=>"gorditaputa", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"232465345"}
+ [36mCYPHER[0m [33m81ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>35, :end_id=>33}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>35, :result_twitter_id=>"232465345"}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598100783180058624"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1605086472, :n_screen_name=>"albinotanya", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1605086472"}
+ [36mCYPHER[0m [33m80ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>37, :end_id=>36}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>37, :result_twitter_id=>"1605086472"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598100742965047296"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>583199097, :n_screen_name=>"acuuuuna", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"583199097"}
+ [36mCYPHER[0m [33m80ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>39, :end_id=>38}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>39, :result_twitter_id=>"583199097"}
+ [36mCYPHER[0m [33m74ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1370679020, :n_name=>"Sierra ॐ̴", :n_screen_name=>"seearuhhh", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1370679020"}
+ [36mCYPHER[0m [33m77ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>40, :end_id=>38}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>40, :result_twitter_id=>"1370679020"}
+ [36mCYPHER[0m [33m65ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598100092407717888"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>2899770491, :n_screen_name=>"momamcconnell", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"2899770491"}
+ [36mCYPHER[0m [33m87ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>42, :end_id=>41}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>42, :result_twitter_id=>"2899770491"}
+ [36mCYPHER[0m [33m64ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1944905875, :n_name=>"Tricia Limburg", :n_screen_name=>"TriciaL1448", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1944905875"}
+ [36mCYPHER[0m [33m85ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>43, :end_id=>41}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>43, :result_twitter_id=>"1944905875"}
+ [36mCYPHER[0m [33m63ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1592674021, :n_name=>"Almost GF", :n_screen_name=>"Namaste2525", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1592674021"}
+ [36mCYPHER[0m [33m79ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>44, :end_id=>41}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>44, :result_twitter_id=>"1592674021"}
+ [36mCYPHER[0m [33m76ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>24346486, :n_name=>"Alx Uttermann", :n_screen_name=>"alxindia", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"24346486"}
+ [36mCYPHER[0m [33m126ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>45, :end_id=>41}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>45, :result_twitter_id=>"24346486"}
+ [36mCYPHER[0m [33m64ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>91592782, :n_name=>"SylvieKarina Bouvier", :n_screen_name=>"VotreAme", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"91592782"}
+ [36mCYPHER[0m [33m118ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>46, :end_id=>41}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>46, :result_twitter_id=>"91592782"}
+ [36mCYPHER[0m [33m62ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>26137875, :n_name=>"Barb Calabrese", :n_screen_name=>"Barb_Calabrese", "limit_1"=>1}
+ [36mCYPHER[0m [33m52ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"26137875"}
+ [36mCYPHER[0m [33m83ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>47, :end_id=>41}
+ [36mCYPHER[0m [33m62ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>47, :result_twitter_id=>"26137875"}
+ [36mCYPHER[0m [33m66ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>470461841, :n_name=>"☮ॐ n i k k i e ★☯", :n_screen_name=>"xprincessnixiex", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"470461841"}
+ [36mCYPHER[0m [33m82ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>48, :end_id=>41}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>48, :result_twitter_id=>"470461841"}
+ [36mCYPHER[0m [33m65ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1320872048, :n_name=>"Auroras Dream", :n_screen_name=>"aurorasparkles", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1320872048"}
+ [36mCYPHER[0m [33m79ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>49, :end_id=>41}
+ [36mCYPHER[0m [33m62ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>49, :result_twitter_id=>"1320872048"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`Tweet`) WHERE (n.twitter_id = {n_twitter_id}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>598014266449362944, "limit_1"=>1}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598014266449362944"}
+ [36mCYPHER[0m [33m76ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>1944905875, :n_screen_name=>"TriciaL1448", "limit_1"=>1}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"1944905875"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598099973993926656"}
+ [36mCYPHER[0m [33m53ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>422135847, :n_screen_name=>"miacocaine_", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"422135847"}
+ [36mCYPHER[0m [33m127ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>52, :end_id=>51}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>52, :result_twitter_id=>"422135847"}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598099206235168768"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>26578853, :n_screen_name=>"dolphingirl15", "limit_1"=>1}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"26578853"}
+ [36mCYPHER[0m [33m89ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>54, :end_id=>53}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>54, :result_twitter_id=>"26578853"}
+ [36mCYPHER[0m [33m66ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>33998866, :n_name=>"Life Time Fitness", :n_screen_name=>"lifetimefitness", "limit_1"=>1}
+ [36mCYPHER[0m [33m52ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"33998866"}
+ [36mCYPHER[0m [33m85ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>55, :end_id=>53}
+ [36mCYPHER[0m [33m61ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>55, :result_twitter_id=>"33998866"}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598099089905987585"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>25210383, :n_screen_name=>"jeffreycentexwx", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"25210383"}
+ [36mCYPHER[0m [33m140ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>57, :end_id=>56}
+ [36mCYPHER[0m [33m62ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>57, :result_twitter_id=>"25210383"}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598098329592066048"}
+ [36mCYPHER[0m [33m53ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>164287336, :n_screen_name=>"TXI10thm", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"164287336"}
+ [36mCYPHER[0m [33m133ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>59, :end_id=>58}
+ [36mCYPHER[0m [33m63ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>59, :result_twitter_id=>"164287336"}
+ [36mCYPHER[0m [33m71ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"NwSide", "limit_1"=>1}
+ [36mCYPHER[0m [33m83ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>27, :end_id=>58}
+ [36mCYPHER[0m [33m63ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"traffic", "limit_1"=>1}
+ [36mCYPHER[0m [33m98ms[0m MATCH (start:`Topic`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`references`]-end | {:start_id=>28, :end_id=>58}
+ [36mCYPHER[0m [33m67ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>249876171, :n_name=>"TTN San Antonio", :n_screen_name=>"TotalTrafficSAT", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"249876171"}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598098260792844288"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>282882201, :n_screen_name=>"maddiemcFIERCE", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"282882201"}
+ [36mCYPHER[0m [33m81ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>61, :end_id=>60}
+ [36mCYPHER[0m [33m65ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>61, :result_twitter_id=>"282882201"}
+ [36mCYPHER[0m [33m66ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>61894117, :n_name=>"Girl Stephanie. ☪", :n_screen_name=>"Stephrauhl", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"61894117"}
+ [36mCYPHER[0m [33m84ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>62, :end_id=>60}
+ [36mCYPHER[0m [33m62ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>62, :result_twitter_id=>"61894117"}
+ [36mCYPHER[0m [33m59ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598098054479097856"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>3022832918, :n_screen_name=>"MolinaCareers", "limit_1"=>1}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"3022832918"}
+ [36mCYPHER[0m [33m60ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097851265200128"}
+ [36mCYPHER[0m [33m114ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097850514481153"}
+ [36mCYPHER[0m [33m53ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>164317787, :n_screen_name=>"TXI37thm", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"164317787"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097849759444992"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>164317787, :n_screen_name=>"TXI37thm", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"164317787"}
+ [36mCYPHER[0m [33m74ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097778812841984"}
+ [36mCYPHER[0m [33m56ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>136091498, :n_screen_name=>"runcrazybastard", "limit_1"=>1}
+ [36mCYPHER[0m [33m58ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"136091498"}
+ [36mCYPHER[0m [33m72ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>68, :end_id=>67}
+ [36mCYPHER[0m [33m63ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>68, :result_twitter_id=>"136091498"}
+ [36mCYPHER[0m [33m53ms[0m MATCH (n:`Topic`) WHERE (n.tag = {n_tag}) RETURN n LIMIT {limit_1} | {:n_tag=>"Endomondo", "limit_1"=>1}
+ [36mCYPHER[0m [33m125ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097318441652225"}
+ [36mCYPHER[0m [33m57ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>574542102, :n_screen_name=>"_eelizabeth3", "limit_1"=>1}
+ [36mCYPHER[0m [33m24ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"574542102"}
+ [36mCYPHER[0m [33m102ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598097317950922752"}
+ [36mCYPHER[0m [33m11ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>136818281, :n_screen_name=>"CassieAramil_95", "limit_1"=>1}
+ [36mCYPHER[0m [33m137ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598096979416260609"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>521472328, :n_screen_name=>"GAdolfo10", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"521472328"}
+ [36mCYPHER[0m [33m103ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"598096847622672384"}
+ [36mCYPHER[0m [33m104ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"595073698597470209"}
+ [36mCYPHER[0m [33m92ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>627935185, :n_screen_name=>"NatAguilera18", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"627935185"}
+ [36mCYPHER[0m [33m76ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>76, :end_id=>75}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>76, :result_twitter_id=>"627935185"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (result:`Tweet`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"595072413517250560"}
+ [36mCYPHER[0m [33m54ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>562271265, :n_screen_name=>"spencer_tobin", "limit_1"=>1}
+ [36mCYPHER[0m [33m52ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"562271265"}
+ [36mCYPHER[0m [33m78ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start-[rel0:`tweeted`]->end | {:start_id=>78, :end_id=>77}
+ [36mCYPHER[0m [33m54ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>78, :result_twitter_id=>"562271265"}
+ [36mCYPHER[0m [33m55ms[0m MATCH (n:`User`) WHERE (n.twitter_id = {n_twitter_id} AND n.name = {n_name} AND n.screen_name = {n_screen_name}) RETURN n LIMIT {limit_1} | {:n_twitter_id=>348272674, :n_name=>"Fulton Lane", :n_screen_name=>"fultronlane", "limit_1"=>1}
+ [36mCYPHER[0m [33m53ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) RETURN COUNT(result) AS count | {:result_twitter_id=>"348272674"}
+ [36mCYPHER[0m [33m86ms[0m MATCH (start:`User`), (end:`Tweet`) WHERE (ID(start) = {start_id} AND ID(end) = {end_id}) CREATE start<-[rel0:`mentions`]-end | {:start_id=>79, :end_id=>77}
+ [36mCYPHER[0m [33m56ms[0m MATCH (result:`User`) WHERE (result.twitter_id = {result_twitter_id}) AND (NOT ID(result) = {record_neo_id}) RETURN COUNT(result) AS count | {:record_neo_id=>79, :result_twitter_id=>"348272674"}
