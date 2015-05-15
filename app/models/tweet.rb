@@ -10,9 +10,11 @@ class Tweet
 
   # Named relationships
   has_many :in, :retweets, model_class: Tweet, origin: :original
-  has_one :out, :original, model_class: Tweet, unique: true
-  has_one :in, :user, unique: true, origin: :tweets
+  has_one  :out, :original, model_class: Tweet, unique: true
+  has_one  :in, :user, unique: true, origin: :tweets
   has_many :out, :topics, model_class: Topic, origin: :tweets
   has_many :out, :mentions, model_class: User, origin: :mentions
-
+  has_one  :out, :reply_to, model_class: Tweet, unique: true
+  has_many :in, :replies, model_class: Tweet, origin: :reply_to
+  
 end

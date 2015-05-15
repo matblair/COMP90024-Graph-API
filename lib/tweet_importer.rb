@@ -1,15 +1,17 @@
 class TweetImporter
   require 'couch_uploader'
 
-  HASHTAG_KEY    = "hashtags"
-  MENTION_KEY    = "user_mentions"
-  TWEET_ID_KEY   = "id"
-  USER_KEY       = "user"
-  CREATED_AT_KEY = "created_at"
-
-  RETWEET_KEY    = "retweeted"
-
-  COUCH_TWEET_DB = 'twitter_tweets'
+  HASHTAG_KEY     = 'hashtags'
+  MENTION_KEY     = 'user_mentions'
+  ID_KEY          = 'id'
+  USER_KEY        = 'user'
+  CREATED_AT_KEY  = 'created_at'
+  REPLY_KEY       = 'in_reply_to_status_id'
+  RETWEET_KEY     = 'retweeted'
+  USER_REPLY_KEY  = 'in_reply_to_user_id'
+  USER_REPLY_NAME = 'in_reply_to_screen_name'
+  COUCH_TWEET_DB  = 'tweets'
+  COUCH_USER_DB   = 'twitter_users'
 
   def self.import_tweets tweets
     ## Process each tweet as if it has the correct structure
@@ -24,14 +26,21 @@ class TweetImporter
         retweeted = tweet_hash[RETWEET_KEY]
 
         tweet = Tweet.new(twitter_id: tweet_id,
-                          retweet: retweeted)
+                          retweet: retweeted,
+                          in_couch: true)
 
         # Check if we have a tweet
         if tweet.save
           # Is unique so build relationships
-          find_tweeters tweet, tweet_hash
+          user = find_tweeters tweet, tweet_hash
           find_topics tweet, tweet_hash
           find_mentions tweet, tweet_hash
+          find_replies tweet, user, tweet_hash
+
+          # Extract the user info for couch
+          if tweet_hash.has_key? USER_KEY
+            users << tweet_hash[USER_KEY]
+          end
 
           # Parse the date
           d = DateTime.parse(tweet_hash[CREATED_AT_KEY])
@@ -57,7 +66,8 @@ class TweetImporter
 
     # Upload all things to couch if there is anything
     if to_couch.count > 0
-      CouchUploader.upload_documents to_couch, COUCH_TWEET_DB, TWEET_ID_KEY
+      CouchUploader.upload_documents users, COUCH_USER_DB, ID_KEY
+      CouchUploader.upload_documents to_couch, COUCH_TWEET_DB, ID_KEY
     end
     # Return nil if no errors
     errors.empty? ? nil : errors
@@ -71,8 +81,26 @@ class TweetImporter
       u = User.find_or_create_by!(twitter_id: user["id"], screen_name: user["screen_name"])
       u.tweets << tweet
       u.save
+      return user
     end
   end
+
+  def self.find_replies tweet, user, tweet_hash
+    if (tweet_hash.has_key? REPLY_KEY) && (tweet_hash[REPLY_KEY])
+      reply_to_tweet = Tweet.find_by!(twitter_id: tweet_hash[REPLY_KEY])
+      ## CHECK IF THE TWEET DOESN'T EXIT
+      if !reply_to_tweet
+        reply_to_tweet = Tweet.new(twitter_id: tweet_hash[REPLY_KEY], in_couch: false)
+        reply_to_tweet.save
+      end
+
+      # Associate all the things~!~!!!!!!~~!!~1~!!~!~!~!1~
+      reply_to_user = User.find_or_create_by!(twitter_id: tweet_hash[USER_REPLY_KEY], screen_name: tweet_hash[USER_REPLY_NAME])
+      reply_to_user.save      
+      tweet.replies << reply_to_tweet
+    end
+  end
+  
 
   def self.find_topics tweet, tweet_hash
     if (tweet_hash.has_key? HASHTAG_KEY) && (tweet_hash[HASHTAG_KEY])
