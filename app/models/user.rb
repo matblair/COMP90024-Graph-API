@@ -7,6 +7,7 @@ class User
   property :twitter_id,  type: String, index: :exact, constraint: :unique
   property :language,    type: String, index: :exact
   property :sleuthed,    type: Boolean
+  property :in_couch, type: Boolean
 
   # Validations for uniqueness contrainsts
   validates_uniqueness_of :twitter_id

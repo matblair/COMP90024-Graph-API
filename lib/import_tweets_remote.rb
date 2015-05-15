@@ -28,32 +28,39 @@ File.open(file, 'r') do |f|
   imported=0
   while line = f.gets
     # begin
-      j = JSON.parse line
-      tweets << j
-      count += 1
-      if tweets.count >= BUNCH_MAX
-        errors = upload_tweets tweets
-        if errors
-          s = tweets.count - errors.count
-          imported += (s)
-          $stdout.puts "Succesfully imported #{s} tweets (#{imported} out of #{count} in total)"
-        else
-          imported += tweets.count
-          $stdout.puts "Succesfully imported #{tweets.count} tweets (#{imported} out of #{count} in total)"
-        end
-        tweets = []
+    j = JSON.parse line
+    tweets << j
+    count += 1
+    if tweets.count >= BUNCH_MAX
+      errors = upload_tweets tweets
+      if errors
+        s = tweets.count - errors.count
+        imported += (s)
+        $stdout.puts "Succesfully imported #{s} tweets (#{imported} out of #{count} in total)"
+      else
+        imported += tweets.count
+        $stdout.puts "Succesfully imported #{tweets.count} tweets (#{imported} out of #{count} in total)"
       end
+      tweets = []
+    end
     # rescue
     #   $stderr.puts "Cannot parse json for line"
     # end
   end
 
   if not tweets.empty?
-    upload_tweets tweets
-    $stdout.puts "Succesfully imported #{tweets.count} tweets"
+    errors = upload_tweets tweets
+    if errors
+      s = tweets.count - errors.count
+      imported += (s)
+      $stdout.puts "Succesfully imported #{s} tweets (#{imported} out of #{count} in total)"
+    else
+      imported += tweets.count
+      $stdout.puts "Succesfully imported #{tweets.count} tweets (#{imported} out of #{count} in total)"
+    end
   end
 
-  $stdout.puts "Succesfully imported a total of #{count} tweets."
+  $stdout.puts "Succesfully imported a total of #{imported} tweets."
 
 end
 ## Import a csv full of tweets
