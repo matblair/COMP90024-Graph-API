@@ -16,10 +16,11 @@ Rails.application.routes.draw do
     get 'topics/:id'         => '/api/topics#show'
     get 'topics/:id/similar' => '/api/topics#similar'
     get 'topics/:id/users'   => '/api/topics#users'
-    get 'topics/:id/path'    => '/api/topics#path'
 
     # Actions to get information about users
     get 'users/shortest_path' => '/api/users#shortest_path'
+    get 'users/:user_id/connections' => '/api/users#connections'
+    
   end
 
   # Root page

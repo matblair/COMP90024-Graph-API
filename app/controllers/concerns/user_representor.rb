@@ -24,6 +24,20 @@ module UserRepresentor
 		response.to_json
 	end
 
+	def connections_json user, connections
+		response = {
+			date: 	     Date.today,
+			time: 		 Time.now,
+			user: 		 user_json(user)
+		}
+		cons = {}
+		connections.each_pair do |k,v|
+			cons[k] = v.map{|u| user_json(u)}
+		end
+		response['connections'] = cons
+		response.to_json
+	end
+
 
 	def user_json user
 		{
