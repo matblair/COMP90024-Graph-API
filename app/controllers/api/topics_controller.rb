@@ -23,16 +23,15 @@ class Api::TopicsController < ApplicationController
 		else
 			degree = 0
 		end
-
-		# Build the query 
-		case degree
-		when 0 
-			topics = @topic.tweets.topics.collect {|t| t.tag }.uniq
-		when 1
-			topics = @topic.tweets.user.tweets.topics.collect {|t| t.tag }.uniq
-		when 2
-			topics = @topic.tweets.user.tweets.topics.tweets.user.tweets.topics.collect {|t| t.tag }.uniq
+		# Find count 
+		if params.has_key? 'frequency'
+			count = params['frequency']
+		else
+			count = false
 		end
+		
+		# Build the query 
+		topics = find_topics degree, count
 
 		# Return the query
 		render json: similar_json(@topic, topics, degree)
@@ -46,4 +45,21 @@ class Api::TopicsController < ApplicationController
 		end
 	end
 
+	def find_topics degree, count
+		case degree
+		when 0 
+			topics = @topic.tweets.topics.collect {|t| t.tag }
+		when 1
+			topics = @topic.tweets.user.tweets.topics.collect {|t| t.tag }
+		when 2
+			topics = @topic.tweets.user.tweets.topics.tweets.user.tweets.topics.collect {|t| t.tag }
+		end
+
+		if count 
+			topics = topics.inject(Hash.new(0)){|hash,e| hash[e] += 1; hash}
+		else
+			topics = topics.uniq
+		end
+		return topics
+	end
 end

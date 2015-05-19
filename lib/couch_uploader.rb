@@ -21,7 +21,7 @@ class CouchUploader
 
       # Upload the document to couch
       response = http.send_request('PUT', "/#{database}/#{key}", doc.to_json)
-      puts response
+      puts response 
     end
   end
 
