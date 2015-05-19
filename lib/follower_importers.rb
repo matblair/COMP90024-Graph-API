@@ -34,5 +34,5 @@ user_follwers = ARGV[0]
 # Open the file as csv with headers
 CSV.foreach(user_follwers, headers:true).each do |line|
 	count = process_user_line line['user_id'], line['followers']
-	puts "Successfully imported #{count} out of #{line['followers'].split(" ").count} followers for line['user_id']"
+	puts "Successfully imported #{count} out of #{line['followers'].split(" ").count} followers for #{line['user_id']}"
 end
