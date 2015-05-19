@@ -29,7 +29,7 @@ class Api::TopicsController < ApplicationController
 		else
 			count = false
 		end
-		
+
 		# Build the query 
 		topics = find_topics degree, count
 
@@ -60,6 +60,7 @@ class Api::TopicsController < ApplicationController
 		else
 			topics = topics.uniq
 		end
+		topics.delete @topic.tag
 		return topics
 	end
 end
