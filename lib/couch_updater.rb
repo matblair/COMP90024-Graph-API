@@ -24,8 +24,12 @@ class CouchUpdater
 
       # Find the revision
       rev = json["_rev"]
+      
       # Add it to the document 
       doc['_rev'] = rev
+
+      # Add the created_at to the doc
+      doc['created_at'] = json['created_at']
 
       # Upload the document to couch
       response = http.put("/#{database}/#{key}", doc.to_json)

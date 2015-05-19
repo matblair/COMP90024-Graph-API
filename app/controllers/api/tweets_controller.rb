@@ -16,8 +16,4 @@ class Api::TweetsController < ApplicationController
 		end
 	end
 
-
-	def index
-		render json: Tweet.all
-	end
 end

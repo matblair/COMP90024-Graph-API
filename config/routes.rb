@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     get 'topics/:id/path'    => '/api/topics#path'
 
     # Actions to get information about users
-
-    
+    get 'users/shortest_path' => '/api/users#shortest_path'
   end
 
   # Root page
