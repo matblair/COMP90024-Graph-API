@@ -2,7 +2,7 @@
 require 'couch_updater'
 
 BUNCH_MAX = 300
-COUCH_TWEET_DB = 'tweet_test2'
+COUCH_TWEET_DB = 'tweets'
 
 # Find the file and duplicates
 file = ARGV[0]
