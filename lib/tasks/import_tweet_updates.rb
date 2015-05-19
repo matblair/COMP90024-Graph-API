@@ -36,6 +36,4 @@ File.open(file, 'r') do |f|
     $stdout.puts "Succesfully imported #{tweets.count} tweets"
   end
 
-  $stdout.puts "Succesfully imported a total of #{count} tweets."
-
 end
