@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     # Actions to get information about topics
     get 'topics/:id'         => '/api/topics#show'
     get 'topics/:id/similar' => '/api/topics#similar'
-    get 'topics/:id/users'   => '/api/topics#users'
 
     # Actions to get information about users
     get 'users/shortest_path' => '/api/users#shortest_path'
