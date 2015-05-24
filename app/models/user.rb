@@ -19,18 +19,4 @@ class User
   has_many :in, :followers, model_class: User, type: "follows"
   has_many :in, :mentions, model_class: Tweet, type: "mentions"
 
-  # Methods to find popular people
-  def self.popular_tweeters
-
-  end
-
-  def self.prolific_tweeters
-
-  end
-
-  # Methods to find distances between people
-  def distance_to user
-
-  end
-
 end
