@@ -42,6 +42,7 @@ module UserRepresentor
 	def user_json user
 		{
 			:name => user.name,
+			:screen_name => user.screen_name,
 			:twitter_id => user.twitter_id,
 			:in_couch => user.in_couch
 		}

@@ -25,11 +25,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def user_stats
+    @u = User.find_by(twitter_id: params['user_id'].to_s)
+  end
+
   def connections
     @u = User.find_by(twitter_id: params['user_id'].to_s)
-    if !@u
-      render json: {:error => "Invalid user" }
-    end
 
     # Find degree
     if params.has_key? 'degree'
@@ -38,11 +39,13 @@ class Api::UsersController < ApplicationController
       degree = 1
     end
 
-    puts degree
-    # Get the array of users
-    users = find_connections @u, degree
-
-    render json: connections_json(@u, users)
+    if @u.nil?
+      render json: {:error => "Invalid user" }
+    else
+      # Get the array of users
+      users = find_connections @u, degree
+      render json: connections_json(@u, users)
+    end
   end
 
   private
@@ -50,15 +53,17 @@ class Api::UsersController < ApplicationController
   def find_connections u, degree
     f = u.followers
     response = { 0 => f.to_a }
-    puts response.keys
+    current = f
+
     # Add the extra ones
     (degree-1).times do |i|
-      current = f.followers
-      response[(i+1)] = current.to_a - f.to_a
-          puts response.keys
-
-      f = current
+      response[(i+1)] ||= []
+      current.each do |u|
+        response[(i+1)] = u.followers.to_a
+      end
+      current = response[(i+1)]
     end
+
     response
   end
 

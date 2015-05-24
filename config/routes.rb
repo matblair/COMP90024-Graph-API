@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     # Actions to get information about users
     get 'users/shortest_path' => '/api/users#shortest_path'
     get 'users/:user_id/connections' => '/api/users#connections'
-    
+    get 'users/:user_id/stats' => '/api/users#connections'
+
   end
 
   # Root page
